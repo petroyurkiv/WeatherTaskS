@@ -15,6 +15,7 @@
 		AB2640D12A1F539D00F5F919 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2640D02A1F539D00F5F919 /* Inter-SemiBold.ttf */; };
 		AB2640D32A1F53D500F5F919 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2640D22A1F53D500F5F919 /* Inter-Medium.ttf */; };
 		AB2640D52A1F53DE00F5F919 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2640D42A1F53DE00F5F919 /* Inter-Regular.ttf */; };
+		AB2640D92A1F58F600F5F919 /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2640D82A1F58F600F5F919 /* Extension+Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		AB2640D22A1F53D500F5F919 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		AB2640D42A1F53DE00F5F919 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		AB2640D62A1F54D200F5F919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AB2640D82A1F58F600F5F919 /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +62,12 @@
 		AB2640B82A1F494B00F5F919 /* WeatherTaskSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				AB2640D62A1F54D200F5F919 /* Info.plist */,
 				AB2640B92A1F494B00F5F919 /* WeatherTaskSwiftUIApp.swift */,
+				AB2640D72A1F58DA00F5F919 /* Extensions */,
 				AB2640C72A1F4A1F00F5F919 /* Screens */,
 				AB2640CC2A1F4E4300F5F919 /* Resources */,
 				AB2640BD2A1F494F00F5F919 /* Assets.xcassets */,
+				AB2640D62A1F54D200F5F919 /* Info.plist */,
 				AB2640BF2A1F494F00F5F919 /* Preview Content */,
 			);
 			path = WeatherTaskSwiftUI;
@@ -111,6 +114,14 @@
 				AB2640D42A1F53DE00F5F919 /* Inter-Regular.ttf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AB2640D72A1F58DA00F5F919 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB2640D82A1F58F600F5F919 /* Extension+Font.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 			files = (
 				AB2640CB2A1F4BA500F5F919 /* ShortInformationView.swift in Sources */,
 				AB2640BC2A1F494B00F5F919 /* MainView.swift in Sources */,
+				AB2640D92A1F58F600F5F919 /* Extension+Font.swift in Sources */,
 				AB2640BA2A1F494B00F5F919 /* WeatherTaskSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
