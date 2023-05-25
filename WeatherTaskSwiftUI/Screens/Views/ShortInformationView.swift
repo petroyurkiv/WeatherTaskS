@@ -15,10 +15,10 @@ struct ShortInformationView: View {
                 .bold()
                 .font(.myTitle)
             Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
-                .font(.mySimpleText)
+                .font(.myDescriptionText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.leading, 16)
-        .padding(.top, 16)
+        .padding(.leading, 16.0)
+        .padding(.top, 16.0)
     }
 }

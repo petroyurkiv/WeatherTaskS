@@ -17,16 +17,13 @@ struct SearchView: View {
                 .padding(.leading)
             HStack {
                 TextField("New York", text: $text)
-                    .font(.mySimpleText)
-                
+                    .font(.myDescriptionText)
             }
-            .padding(8)
-            .overlay(RoundedRectangle(cornerRadius: 24)
+            .padding(8.0)
+            .overlay(RoundedRectangle(cornerRadius: 24.0)
                 .stroke(.black, lineWidth: 4))
-            .padding(.leading, 16)
-            .padding(.trailing, 16)
+            .padding(.horizontal, 16.0)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
-

@@ -16,7 +16,11 @@ extension Font {
         Font.custom("Inter-Medium", size: 20)
     }
     
-    static var mySimpleText: Font {
+    static var myParagraphText: Font {
+        Font.custom("Inter-Medium", size: 18)
+    }
+    
+    static var myDescriptionText: Font {
         Font.custom("Inter-Medium", size: 16)
     }
 }
