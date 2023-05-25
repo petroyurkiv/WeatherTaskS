@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ShortInformationView: View {
+    @Binding var viewModel: ShortInformationViewModel
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Lviv")
+            Text(viewModel.city)
                 .bold()
                 .font(.myTitle)
             Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")

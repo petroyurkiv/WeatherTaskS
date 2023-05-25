@@ -8,16 +8,32 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var viewModel = MainViewModel()
+    
     var body: some View {
-        GeometryReader { proxy in
-            VStack {
-                ShortInformationView()
-                TemperatureTextView(textSize: proxy.size.height / 100.0 * 16.0)
-                VStack(spacing: 8.0) {
-                    SearchView()
-                    DailySummaryView(iconSize: proxy.size.height / 100.0 * 8.0)
-                    WeeklyForecastView()
+        VStack {
+            if let errorText = viewModel.errorText {
+                Text("ERROR: \(errorText)")
+                    .lineLimit(2)
+                    .frame(height: 60.0)
+            }
+            
+            if viewModel.isLoading {
+                    LoadingView()
+                    .frame(height: 60.0)
+            }
+            
+            GeometryReader { proxy in
+                VStack {
+                    ShortInformationView(viewModel: $viewModel.shortInformationViewModel)
+                    TemperatureTextView(viewModel: $viewModel.temperatureTextViewModel, textSize: proxy.size.height / 100.0 * 16.0)
+                    VStack(spacing: 8.0) {
+                        SearchView()
+                        DailySummaryView(viewModel: $viewModel.dailySummaryViewModel, iconSize: proxy.size.height / 100.0 * 8.0)
+                        WeeklyForecastView()
+                    }
                 }
+                .background(Color(R.color.bgSunnyColor()!))
             }
         }
     }

@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct TemperatureTextView: View {
+    @Binding var viewModel: TemperatureTextViewModel
     var textSize: CGFloat
     
     var body: some View {
         ZStack(alignment: .center) {
             VStack {
-                Text("17°")
+                Text(viewModel.temperature)
                     .font(.custom("Inter-SemiBold", size: textSize))
             }
         }
