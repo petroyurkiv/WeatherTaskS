@@ -20,6 +20,8 @@
 		AB2640DD2A1F5D5000F5F919 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2640DC2A1F5D5000F5F919 /* SearchView.swift */; };
 		AB2640DF2A1F5EE700F5F919 /* DailySummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2640DE2A1F5EE700F5F919 /* DailySummaryView.swift */; };
 		AB2640E22A1F629A00F5F919 /* DailySummaryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2640E12A1F629A00F5F919 /* DailySummaryItemView.swift */; };
+		AB2640E72A1F6FAD00F5F919 /* WeeklyForecastItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2640E62A1F6FAD00F5F919 /* WeeklyForecastItemView.swift */; };
+		AB2640E92A1F76F800F5F919 /* WeeklyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2640E82A1F76F800F5F919 /* WeeklyForecastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		AB2640DC2A1F5D5000F5F919 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		AB2640DE2A1F5EE700F5F919 /* DailySummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryView.swift; sourceTree = "<group>"; };
 		AB2640E12A1F629A00F5F919 /* DailySummaryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryItemView.swift; sourceTree = "<group>"; };
+		AB2640E62A1F6FAD00F5F919 /* WeeklyForecastItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyForecastItemView.swift; sourceTree = "<group>"; };
+		AB2640E82A1F76F800F5F919 /* WeeklyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyForecastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				AB2640B92A1F494B00F5F919 /* WeatherTaskSwiftUIApp.swift */,
+				AB2640CC2A1F4E4300F5F919 /* Resources */,
 				AB2640D72A1F58DA00F5F919 /* Extensions */,
 				AB2640C72A1F4A1F00F5F919 /* Screens */,
-				AB2640CC2A1F4E4300F5F919 /* Resources */,
 				AB2640BD2A1F494F00F5F919 /* Assets.xcassets */,
 				AB2640D62A1F54D200F5F919 /* Info.plist */,
 				AB2640BF2A1F494F00F5F919 /* Preview Content */,
@@ -113,6 +117,7 @@
 				AB2640DA2A1F5AAC00F5F919 /* TemperatureTextView.swift */,
 				AB2640DC2A1F5D5000F5F919 /* SearchView.swift */,
 				AB2640E02A1F625E00F5F919 /* DailySummaryView */,
+				AB2640E52A1F6F5200F5F919 /* WeeklyForecastView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +147,15 @@
 				AB2640E12A1F629A00F5F919 /* DailySummaryItemView.swift */,
 			);
 			path = DailySummaryView;
+			sourceTree = "<group>";
+		};
+		AB2640E52A1F6F5200F5F919 /* WeeklyForecastView */ = {
+			isa = PBXGroup;
+			children = (
+				AB2640E82A1F76F800F5F919 /* WeeklyForecastView.swift */,
+				AB2640E62A1F6FAD00F5F919 /* WeeklyForecastItemView.swift */,
+			);
+			path = WeeklyForecastView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +235,8 @@
 				AB2640CB2A1F4BA500F5F919 /* ShortInformationView.swift in Sources */,
 				AB2640BC2A1F494B00F5F919 /* MainView.swift in Sources */,
 				AB2640DB2A1F5AAC00F5F919 /* TemperatureTextView.swift in Sources */,
+				AB2640E92A1F76F800F5F919 /* WeeklyForecastView.swift in Sources */,
+				AB2640E72A1F6FAD00F5F919 /* WeeklyForecastItemView.swift in Sources */,
 				AB2640DF2A1F5EE700F5F919 /* DailySummaryView.swift in Sources */,
 				AB2640D92A1F58F600F5F919 /* Extension+Font.swift in Sources */,
 				AB2640DD2A1F5D5000F5F919 /* SearchView.swift in Sources */,
