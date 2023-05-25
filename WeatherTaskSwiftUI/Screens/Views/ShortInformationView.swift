@@ -13,7 +13,7 @@ struct ShortInformationView: View {
         VStack(alignment: .leading) {
             Text("Lviv")
                 .bold()
-                .font(.system(size: 32))
+                .font(.custom("Inter-SemiBold", size: 32))
             Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
         }
         .frame(maxWidth: .infinity, alignment: .leading)

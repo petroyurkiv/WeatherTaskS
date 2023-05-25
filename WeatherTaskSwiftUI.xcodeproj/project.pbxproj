@@ -12,6 +12,9 @@
 		AB2640BE2A1F494F00F5F919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB2640BD2A1F494F00F5F919 /* Assets.xcassets */; };
 		AB2640C12A1F494F00F5F919 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB2640C02A1F494F00F5F919 /* Preview Assets.xcassets */; };
 		AB2640CB2A1F4BA500F5F919 /* ShortInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2640CA2A1F4BA500F5F919 /* ShortInformationView.swift */; };
+		AB2640D12A1F539D00F5F919 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2640D02A1F539D00F5F919 /* Inter-SemiBold.ttf */; };
+		AB2640D32A1F53D500F5F919 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2640D22A1F53D500F5F919 /* Inter-Medium.ttf */; };
+		AB2640D52A1F53DE00F5F919 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2640D42A1F53DE00F5F919 /* Inter-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,10 @@
 		AB2640BD2A1F494F00F5F919 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB2640C02A1F494F00F5F919 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB2640CA2A1F4BA500F5F919 /* ShortInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortInformationView.swift; sourceTree = "<group>"; };
+		AB2640D02A1F539D00F5F919 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		AB2640D22A1F53D500F5F919 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		AB2640D42A1F53DE00F5F919 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		AB2640D62A1F54D200F5F919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +60,10 @@
 		AB2640B82A1F494B00F5F919 /* WeatherTaskSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				AB2640D62A1F54D200F5F919 /* Info.plist */,
 				AB2640B92A1F494B00F5F919 /* WeatherTaskSwiftUIApp.swift */,
 				AB2640C72A1F4A1F00F5F919 /* Screens */,
+				AB2640CC2A1F4E4300F5F919 /* Resources */,
 				AB2640BD2A1F494F00F5F919 /* Assets.xcassets */,
 				AB2640BF2A1F494F00F5F919 /* Preview Content */,
 			);
@@ -92,6 +101,16 @@
 				AB2640CA2A1F4BA500F5F919 /* ShortInformationView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AB2640CC2A1F4E4300F5F919 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB2640D02A1F539D00F5F919 /* Inter-SemiBold.ttf */,
+				AB2640D22A1F53D500F5F919 /* Inter-Medium.ttf */,
+				AB2640D42A1F53DE00F5F919 /* Inter-Regular.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +171,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB2640D32A1F53D500F5F919 /* Inter-Medium.ttf in Resources */,
+				AB2640D52A1F53DE00F5F919 /* Inter-Regular.ttf in Resources */,
+				AB2640D12A1F539D00F5F919 /* Inter-SemiBold.ttf in Resources */,
 				AB2640C12A1F494F00F5F919 /* Preview Assets.xcassets in Resources */,
 				AB2640BE2A1F494F00F5F919 /* Assets.xcassets in Resources */,
 			);
@@ -298,6 +320,7 @@
 				DEVELOPMENT_TEAM = PF6GCM4LDS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherTaskSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +350,7 @@
 				DEVELOPMENT_TEAM = PF6GCM4LDS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherTaskSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
