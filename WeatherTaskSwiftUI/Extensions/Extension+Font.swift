@@ -8,15 +8,15 @@
 import SwiftUI
 
 extension Font {
-    static var title: Font {
+    static var myTitle: Font {
         Font.custom("Inter-SemiBold", size: 32)
     }
     
-    static var subtitle: Font {
-        Font.custom("Inter-SemiBold", size: 20)
+    static var mySubtitle: Font {
+        Font.custom("Inter-Medium", size: 20)
     }
     
-    static var simpleText: Font {
-        Font.custom("Inter-SemiBold", size: 16)
+    static var mySimpleText: Font {
+        Font.custom("Inter-Medium", size: 16)
     }
 }

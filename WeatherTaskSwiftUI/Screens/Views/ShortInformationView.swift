@@ -13,8 +13,9 @@ struct ShortInformationView: View {
         VStack(alignment: .leading) {
             Text("Lviv")
                 .bold()
-                .font(.custom("Inter-SemiBold", size: 32))
+                .font(.myTitle)
             Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
+                .font(.mySimpleText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.leading, 16)

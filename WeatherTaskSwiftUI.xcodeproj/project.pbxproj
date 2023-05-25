@@ -16,6 +16,7 @@
 		AB2640D32A1F53D500F5F919 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2640D22A1F53D500F5F919 /* Inter-Medium.ttf */; };
 		AB2640D52A1F53DE00F5F919 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2640D42A1F53DE00F5F919 /* Inter-Regular.ttf */; };
 		AB2640D92A1F58F600F5F919 /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2640D82A1F58F600F5F919 /* Extension+Font.swift */; };
+		AB2640DB2A1F5AAC00F5F919 /* TemperatureTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2640DA2A1F5AAC00F5F919 /* TemperatureTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AB2640D42A1F53DE00F5F919 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		AB2640D62A1F54D200F5F919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AB2640D82A1F58F600F5F919 /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
+		AB2640DA2A1F5AAC00F5F919 /* TemperatureTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				AB2640CA2A1F4BA500F5F919 /* ShortInformationView.swift */,
+				AB2640DA2A1F5AAC00F5F919 /* TemperatureTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			files = (
 				AB2640CB2A1F4BA500F5F919 /* ShortInformationView.swift in Sources */,
 				AB2640BC2A1F494B00F5F919 /* MainView.swift in Sources */,
+				AB2640DB2A1F5AAC00F5F919 /* TemperatureTextView.swift in Sources */,
 				AB2640D92A1F58F600F5F919 /* Extension+Font.swift in Sources */,
 				AB2640BA2A1F494B00F5F919 /* WeatherTaskSwiftUIApp.swift in Sources */,
 			);

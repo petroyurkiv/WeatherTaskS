@@ -9,8 +9,11 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        VStack {
-            ShortInformationView()
+        GeometryReader { proxy in
+            VStack {
+                ShortInformationView()
+                TemperatureTextView(textSize: proxy.size.height / 100.0 * 16.0)
+            }
         }
     }
 }
