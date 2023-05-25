@@ -13,6 +13,7 @@ struct MainView: View {
             VStack {
                 ShortInformationView()
                 TemperatureTextView(textSize: proxy.size.height / 100.0 * 16.0)
+                SearchView()
             }
         }
     }
