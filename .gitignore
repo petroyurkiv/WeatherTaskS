@@ -59,7 +59,5 @@ build/
 CVS 
 
 # CocoaPods
-Podfile.lock
 Pods
-*.generated.swift
 *.xcworkspace
