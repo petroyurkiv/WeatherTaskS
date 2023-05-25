@@ -12,7 +12,7 @@ struct SearchView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Search")
+            Text(R.string.texts.weatherTaskSwiftUISearchViewTitle())
                 .font(.mySubtitle)
                 .padding(.leading)
             HStack {

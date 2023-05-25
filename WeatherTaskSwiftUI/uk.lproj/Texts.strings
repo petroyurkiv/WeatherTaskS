@@ -1,0 +1,6 @@
+"WeatherTaskSwiftUI.SearchView.title" = "Пошук";
+"WeatherTaskSwiftUI.DailySummaryView.title" = "Дані станом на зараз";
+"WeatherTaskSwiftUI.WeeklyForecastView.title" = "Тижневий прогноз";
+"WeatherTaskSwiftUI.DailySummaryView.itemSubitle.wind" = "Вітер";
+"WeatherTaskSwiftUI.DailySummaryView.itemSubitle.humidity" = "Вологість";
+"WeatherTaskSwiftUI.DailySummaryView.itemSubitle.visibility" = "Видимість";

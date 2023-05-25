@@ -13,7 +13,7 @@ struct WeeklyForecastView: View {
     var body: some View {
         GeometryReader { proxy in
             VStack(alignment: .leading) {
-                Text("Weekly forecast")
+                Text(R.string.texts.weatherTaskSwiftUIWeeklyForecastViewTitle())
                     .font(.mySubtitle)
                     .padding(.leading, 16.0)
                 ScrollView(.horizontal, showsIndicators: false) {

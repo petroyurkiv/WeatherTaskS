@@ -12,12 +12,23 @@ struct DailySummaryView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Daily summary")
+            Text(R.string.texts.weatherTaskSwiftUIDailySummaryViewTitle())
                 .font(.mySubtitle)
             HStack(spacing: 8.0) {
-                DailySumarryItemView(iconSize: iconSize, image: "windImage", title: "35" + "km/h", subtitle: "Wind")
-                DailySumarryItemView(iconSize: iconSize, image: "humidityImage", title: "40" + "%", subtitle: "Humidity")
-                DailySumarryItemView(iconSize: iconSize, image: "visibilityImage", title: "1.2km" + "km", subtitle: "Visibility")
+                DailySumarryItemView(iconSize: iconSize,
+                                     image: R.image.windImage()!,
+                                     title: "35" + "km/h",
+                                     subtitle: R.string.texts.weatherTaskSwiftUIDailySummaryViewItemSubitleWind())
+                
+                DailySumarryItemView(iconSize: iconSize,
+                                     image: R.image.humidityImage()!,
+                                     title: "40" + "%",
+                                     subtitle: R.string.texts.weatherTaskSwiftUIDailySummaryViewItemSubitleHumidity())
+                
+                DailySumarryItemView(iconSize: iconSize,
+                                     image: R.image.visibilityImage()!,
+                                     title: "1.2km" + "km",
+                                     subtitle: R.string.texts.weatherTaskSwiftUIDailySummaryViewItemSubitleVisibility())
             }
             .frame(maxWidth: .infinity, alignment: .center)
             .padding(.horizontal, 8.0)

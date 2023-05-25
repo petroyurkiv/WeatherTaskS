@@ -1,0 +1,6 @@
+"WeatherTaskSwiftUI.SearchView.title" = "Search";
+"WeatherTaskSwiftUI.DailySummaryView.title" = "Daily summary";
+"WeatherTaskSwiftUI.WeeklyForecastView.title" = "Weekly forecast";
+"WeatherTaskSwiftUI.DailySummaryView.itemSubitle.wind" = "Wind";
+"WeatherTaskSwiftUI.DailySummaryView.itemSubitle.humidity" = "Humidity";
+"WeatherTaskSwiftUI.DailySummaryView.itemSubitle.visibility" = "Visibility";

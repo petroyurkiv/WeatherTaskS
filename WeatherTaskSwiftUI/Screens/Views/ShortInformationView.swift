@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ShortInformationView: View {
-    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Lviv")
