@@ -30,7 +30,7 @@ struct MainView: View {
                     VStack(spacing: 8.0) {
                         SearchView()
                         DailySummaryView(viewModel: $viewModel.dailySummaryViewModel, iconSize: proxy.size.height / 100.0 * 8.0)
-                        WeeklyForecastView()
+                        WeeklyForecastView(viewModel: $viewModel.weeklyForecastViewModel)
                     }
                 }
                 .background(Color(R.color.bgSunnyColor()!))

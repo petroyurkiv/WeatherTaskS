@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WeeklyForecastView: View {
-    var array = ["a", "b", "c", "d"]
+    @Binding var viewModel: WeeklyForecastViewModel
     
     var body: some View {
         GeometryReader { proxy in
@@ -18,9 +18,9 @@ struct WeeklyForecastView: View {
                     .padding(.leading, 16.0)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16.0) {
-                        ForEach(array, id: \.self, content: { item in
-                            WeeklyForecastItemView(width: (proxy.size.width - 80) / 4, day: "TUE", temperature: "23", date: "April")
-                        })
+                        ForEach(0..<viewModel.temperatures.count,  id: \.self) { index in
+                            WeeklyForecastItemView(width: (proxy.size.width - 80) / 4, day: viewModel.days[index], temperature: viewModel.temperatures[index], date: viewModel.dates[index])
+                        }
                     }
                     .padding(.vertical, 2.0)
                     .padding(.horizontal, 16.0)

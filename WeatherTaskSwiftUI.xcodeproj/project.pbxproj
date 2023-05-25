@@ -39,6 +39,7 @@
 		ABD96E1E2A1F985B0068AD19 /* TemperatureTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD96E1D2A1F985B0068AD19 /* TemperatureTextViewModel.swift */; };
 		ABD96E212A1F9B6E0068AD19 /* DailySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD96E202A1F9B6E0068AD19 /* DailySummaryViewModel.swift */; };
 		ABD96E242A1FA3470068AD19 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD96E232A1FA3470068AD19 /* LoadingView.swift */; };
+		ABD96E262A1FA91B0068AD19 /* WeeklyForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD96E252A1FA91B0068AD19 /* WeeklyForecastViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		ABD96E1D2A1F985B0068AD19 /* TemperatureTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTextViewModel.swift; sourceTree = "<group>"; };
 		ABD96E202A1F9B6E0068AD19 /* DailySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewModel.swift; sourceTree = "<group>"; };
 		ABD96E232A1FA3470068AD19 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		ABD96E252A1FA91B0068AD19 /* WeeklyForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyForecastViewModel.swift; sourceTree = "<group>"; };
 		D40D28189C179145976A43F2 /* Pods-WeatherTaskSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherTaskSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-WeatherTaskSwiftUI/Pods-WeatherTaskSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,7 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				AB2640E82A1F76F800F5F919 /* WeeklyForecastView.swift */,
-				AB2640E62A1F6FAD00F5F919 /* WeeklyForecastItemView.swift */,
+				ABD96E252A1FA91B0068AD19 /* WeeklyForecastViewModel.swift */,
+				ABD96E272A1FA9CB0068AD19 /* WeeklyForecastItemView */,
 			);
 			path = WeeklyForecastView;
 			sourceTree = "<group>";
@@ -325,6 +328,14 @@
 				AB2640E12A1F629A00F5F919 /* DailySummaryItemView.swift */,
 			);
 			path = DailySumarryItemView;
+			sourceTree = "<group>";
+		};
+		ABD96E272A1FA9CB0068AD19 /* WeeklyForecastItemView */ = {
+			isa = PBXGroup;
+			children = (
+				AB2640E62A1F6FAD00F5F919 /* WeeklyForecastItemView.swift */,
+			);
+			path = WeeklyForecastItemView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,6 +478,7 @@
 			files = (
 				ABD96E1B2A1F95DB0068AD19 /* ShortInformationViewModel.swift in Sources */,
 				ABD96E1E2A1F985B0068AD19 /* TemperatureTextViewModel.swift in Sources */,
+				ABD96E262A1FA91B0068AD19 /* WeeklyForecastViewModel.swift in Sources */,
 				AB2640E22A1F629A00F5F919 /* DailySummaryItemView.swift in Sources */,
 				AB2640CB2A1F4BA500F5F919 /* ShortInformationView.swift in Sources */,
 				AB2640BC2A1F494B00F5F919 /* MainView.swift in Sources */,
