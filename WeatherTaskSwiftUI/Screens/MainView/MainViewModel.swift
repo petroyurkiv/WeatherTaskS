@@ -10,45 +10,72 @@ import CoreLocation
 import Combine
 
 class MainViewModel: ObservableObject {
+    private let locationManager = LocationManager()
+    
     @Published var shortInformationViewModel = ShortInformationViewModel()
     @Published var temperatureTextViewModel = TemperatureTextViewModel()
     @Published var dailySummaryViewModel = DailySummaryViewModel()
     @Published var weeklyForecastViewModel = WeeklyForecastViewModel()
     
-    @Published var isLoading = false
+    @Published var isLoading = true
     @Published var errorText: String?
     @Published var searchedCity: String = ""
     var bag = Set<AnyCancellable>()
     
     init() {
+        locationManager.onLocationResult = { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case let .success(location):
+                self.fetchData(latitude: location.latitude, lognitube: location.longitude)
+
+            case .failure:
+                self.errorText = "Can't detect your location"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    self.errorText = nil
+                })
+            }
+        }
+        locationManager.requestLocation()
+        
         $searchedCity.sink { [weak self] cityName in
             self?.fetchData(city: cityName)
         }.store(in: &bag)
     }
     
-    func fetchData(city: String) {
+    func fetchData(latitude: CLLocationDegrees, lognitube: CLLocationDegrees) {
         errorText = nil
-        isLoading = true
+        CoordinatesWeatherManagerService.fetchData(latitude: latitude, longitude: lognitube) { [weak self] response in
+            self?.handleResponse(response)
+        }
+    }
+    
+    func fetchData(city: String) {
+        guard !city.isEmpty else { return }
+        
+        errorText = nil
         CityWeatherManagerService.fetchData(city: city) { [weak self] response in
-            guard let self else { return }
-            
-            switch response {
-            case.success(let result):
-                DispatchQueue.main.async {
-                    self.shortInformationViewModel = self.adaptDomainModelsToShortInformationViewModel(model: result)
-                    self.temperatureTextViewModel = self.adaptDomainModelsToTemperatureTextViewModel(model: result)
-                    self.dailySummaryViewModel = self.adaptDomainModelsToDailySummaryViewModel(model: result)
-                    self.weeklyForecastViewModel = self.adaptDomainModelsToWeeklyForecastViewModel(model: result)
-                }
-                
-            case.failure(let error):
-                DispatchQueue.main.async {
-                    self.errorText = error.localizedDescription
-                }
-            }
+            self?.handleResponse(response)
+        }
+    }
+    
+    private func handleResponse(_ response: Result<WeatherResult, Error>) {
+        switch response {
+        case .success(let result):
             DispatchQueue.main.async {
-                self.isLoading = false
+                self.shortInformationViewModel = self.adaptDomainModelsToShortInformationViewModel(model: result)
+                self.temperatureTextViewModel = self.adaptDomainModelsToTemperatureTextViewModel(model: result)
+                self.dailySummaryViewModel = self.adaptDomainModelsToDailySummaryViewModel(model: result)
+                self.weeklyForecastViewModel = self.adaptDomainModelsToWeeklyForecastViewModel(model: result)
             }
+            
+        case .failure:
+            DispatchQueue.main.async {
+                self.errorText = "Something went wrong"
+            }
+        }
+        DispatchQueue.main.async {
+            self.isLoading = false
         }
     }
     
@@ -83,8 +110,7 @@ class MainViewModel: ObservableObject {
                 temperatures.append(String(Int(i.main.temp)) + "°")
             }
         }
-        print(temperatures)
-        print(dates)
+        
         return WeeklyForecastViewModel(
             days: filterDateArray(setFormattedDateToArray(array: dates, dateFormat: "E")),
             temperatures: temperatures,

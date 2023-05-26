@@ -39,9 +39,3 @@ struct DailySummaryView: View {
         .padding(.horizontal, 16.0)
     }
 }
-
-//struct DailySummaryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DailySummaryView(iconSize: 64.0)
-//    }
-//}

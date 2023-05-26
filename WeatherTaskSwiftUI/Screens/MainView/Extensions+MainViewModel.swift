@@ -5,7 +5,7 @@
 //  Created by Petro on 26.05.2023.
 //
 
-import Foundation
+import SwiftUI
 
 extension MainViewModel {
     func setFormattedDateToArray(array: [Date], dateFormat: String) -> [String] {

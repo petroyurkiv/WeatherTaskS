@@ -8,5 +8,9 @@
 		<string>Inter-Medium.ttf</string>
 		<string>Inter-SemiBold.ttf</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>Needs Location when in use</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+  		<string>Needs Location when in use</string>
 </dict>
 </plist>
