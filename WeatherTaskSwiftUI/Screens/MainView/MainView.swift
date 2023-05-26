@@ -28,7 +28,7 @@ struct MainView: View {
                     ShortInformationView(viewModel: $viewModel.shortInformationViewModel)
                     TemperatureTextView(viewModel: $viewModel.temperatureTextViewModel, textSize: proxy.size.height / 100.0 * 16.0)
                     VStack(spacing: 8.0) {
-                        SearchView()
+                        SearchView(searchedCity: $viewModel.searchedCity)
                         DailySummaryView(viewModel: $viewModel.dailySummaryViewModel, iconSize: proxy.size.height / 100.0 * 8.0)
                         WeeklyForecastView(viewModel: $viewModel.weeklyForecastViewModel)
                     }

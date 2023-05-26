@@ -21,10 +21,10 @@ struct DailySumarryItemView: View {
                 .padding(.top, 8.0)
                 .padding(.bottom, 0)
             Text(title)
-                .font(.myParagraphText)
+                .font(Font(R.font.interMedium(size: 18.0)!))
                 .foregroundColor(Color(R.color.bgSunnyColor()!))
             Text(subtitle)
-                .font(.myDescriptionText)
+                .font(Font(R.font.interMedium(size: 16.0)!))
                 .foregroundColor(Color(R.color.bgSunnyColor()!))
                 .padding(.bottom, 16.0)
         }

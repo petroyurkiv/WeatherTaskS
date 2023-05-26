@@ -27,9 +27,8 @@ build/
 CVS 
 
 # CocoaPods
-Podfile.lock
 Pods
-*.generated.swift
+
 *.xcworkspace# Mac OS X Finder
 .DS_Store
 
@@ -60,4 +59,3 @@ CVS
 
 # CocoaPods
 Pods
-*.xcworkspace

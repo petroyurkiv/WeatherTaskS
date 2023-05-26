@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State var text = ""
+    @Binding var searchedCity: String
+    @State var text: String = ""
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(R.string.texts.weatherTaskSwiftUISearchViewTitle())
-                .font(.mySubtitle)
+                .font(Font(R.font.interSemiBold(size: 20)!))
                 .padding(.leading)
             HStack {
-                TextField("New York", text: $text)
-                    .font(.myDescriptionText)
+                TextField("City", text: $text)
+                    .font(Font(R.font.interMedium(size: 16)!))
+                    .onSubmit {
+                        self.searchedCity = text
+                    }
             }
             .padding(8.0)
             .overlay(RoundedRectangle(cornerRadius: 24.0)

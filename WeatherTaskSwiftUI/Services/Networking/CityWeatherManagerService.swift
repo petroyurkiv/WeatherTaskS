@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CityWeatherRequest {
+enum CityWeatherManagerService {
     
     static func fetchData(city: String, completion: @escaping (Result<WeatherResult, Error>) -> Void) {
         var request = URLRequest(url: URL(string: "\(NetworkSettings.baseURL)/forecast?q=\(city)&appid=\(NetworkSettings.apiKey)&units=metric")!)

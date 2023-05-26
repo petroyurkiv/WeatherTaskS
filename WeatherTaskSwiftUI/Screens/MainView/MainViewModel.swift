@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreLocation
+import Combine
 
 class MainViewModel: ObservableObject {
     @Published var shortInformationViewModel = ShortInformationViewModel()
@@ -15,15 +17,19 @@ class MainViewModel: ObservableObject {
     
     @Published var isLoading = false
     @Published var errorText: String?
+    @Published var searchedCity: String = ""
+    var bag = Set<AnyCancellable>()
     
     init() {
-        fetchData()
+        $searchedCity.sink { [weak self] cityName in
+            self?.fetchData(city: cityName)
+        }.store(in: &bag)
     }
     
-    func fetchData() {
+    func fetchData(city: String) {
         errorText = nil
         isLoading = true
-        CityWeatherManagerService.fetchData(city: "Lviv") { [weak self] response in
+        CityWeatherManagerService.fetchData(city: city) { [weak self] response in
             guard let self else { return }
             
             switch response {
@@ -63,29 +69,6 @@ class MainViewModel: ObservableObject {
         )
     }
     
-    private func setFormattedDateToArray(array: [Date], dateFormat: String) -> [String] {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat
-        var dates = [String]()
-        for i in array {
-            let date = dateFormatter.string(from: i)
-            dates.append(date)
-        }
-        return dates
-    }
-    
-    private func formatFromDateToString(date: Date, dateFormat: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat
-        let formattedDate = dateFormatter.string(from: date)
-        return formattedDate
-    }
-    
-    private func filterDateArray(_ array: [String]) -> [String] {
-        let setArray = NSOrderedSet(array: array)
-        return setArray.compactMap { $0 as? String }
-    }
-    
     private func adaptDomainModelsToWeeklyForecastViewModel(model: WeatherResult) -> WeeklyForecastViewModel {
         let list = model.list
         var dates: [Date] = []
@@ -95,7 +78,6 @@ class MainViewModel: ObservableObject {
         
         for i in list {
             dates.append(i.date)
-            
             let hour = formatFromDateToString(date: i.date, dateFormat: "HH:mm")
             if firstHour == hour {
                 temperatures.append(String(Int(i.main.temp)) + "°")
