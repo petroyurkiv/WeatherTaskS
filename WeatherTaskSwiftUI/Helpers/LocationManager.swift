@@ -17,13 +17,17 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         manager.delegate = self
     }
     
-    func requestLocation() {
+    func requestAuthorization() {
         manager.requestAlwaysAuthorization()
+    }
+    
+    func requestLocation() {
         manager.requestLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first?.coordinate {
+            manager.requestAlwaysAuthorization()
             onLocationResult?(.success(location))
             manager.stopUpdatingLocation()
             onLocationResult = nil
@@ -34,6 +38,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         onLocationResult?(.failure(error))
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        manager.requestLocation()
     }
 }
 

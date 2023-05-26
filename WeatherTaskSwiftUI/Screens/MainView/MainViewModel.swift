@@ -17,12 +17,14 @@ class MainViewModel: ObservableObject {
     @Published var dailySummaryViewModel = DailySummaryViewModel()
     @Published var weeklyForecastViewModel = WeeklyForecastViewModel()
     
-    @Published var isLoading = true
+    @Published var isLoading = false
     @Published var errorText: String?
     @Published var searchedCity: String = ""
     var bag = Set<AnyCancellable>()
     
     init() {
+        locationManager.requestAuthorization()
+        locationManager.requestLocation()
         locationManager.onLocationResult = { [weak self] result in
             guard let self else { return }
             switch result {
@@ -30,13 +32,14 @@ class MainViewModel: ObservableObject {
                 self.fetchData(latitude: location.latitude, lognitube: location.longitude)
 
             case .failure:
+                self.isLoading = false
                 self.errorText = "Can't detect your location"
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                     self.errorText = nil
+                    self.isLoading = true
                 })
             }
         }
-        locationManager.requestLocation()
         
         $searchedCity.sink { [weak self] cityName in
             self?.fetchData(city: cityName)
@@ -44,6 +47,7 @@ class MainViewModel: ObservableObject {
     }
     
     func fetchData(latitude: CLLocationDegrees, lognitube: CLLocationDegrees) {
+        isLoading = true
         errorText = nil
         CoordinatesWeatherManagerService.fetchData(latitude: latitude, longitude: lognitube) { [weak self] response in
             self?.handleResponse(response)
@@ -51,6 +55,7 @@ class MainViewModel: ObservableObject {
     }
     
     func fetchData(city: String) {
+        isLoading = true
         guard !city.isEmpty else { return }
         
         errorText = nil
