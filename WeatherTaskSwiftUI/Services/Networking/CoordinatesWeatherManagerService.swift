@@ -1,16 +1,17 @@
 //
-//  CityWeatherRequest.swift
+//  CoordinatesWeatherRequest.swift
 //  WeatherTaskSwiftUI
 //
-//  Created by Petro on 25.05.2023.
+//  Created by Petro on 26.05.2023.
 //
 
 import Foundation
+import CoreLocation
 
-enum CityWeatherManagerService {
+enum CoordinatesWeatherManagerService {
     
-    static func fetchData(city: String, completion: @escaping (Result<WeatherResult, Error>) -> Void) {
-        var request = URLRequest(url: URL(string: "\(NetworkSettings.baseURL)/forecast?q=\(city)&appid=\(NetworkSettings.apiKey)&units=metric")!)
+    static func fetchData(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping (Result<WeatherResult, Error>) -> Void) {
+        var request = URLRequest(url: URL(string: "\(NetworkSettings.baseURL)/forecast?lat=\(latitude)&lon=\(longitude)&appid=\(NetworkSettings.apiKey)&units=metric")!)
         request.httpMethod = "GET"
         let session = URLSession(configuration: .default)
         
