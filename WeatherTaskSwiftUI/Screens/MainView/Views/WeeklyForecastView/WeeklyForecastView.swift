@@ -19,7 +19,9 @@ struct WeeklyForecastView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16.0) {
                         ForEach(0..<viewModel.temperatures.count,  id: \.self) { index in
-                            WeeklyForecastItemView(width: (proxy.size.width - 80) / 4, day: viewModel.days[index], temperature: viewModel.temperatures[index], date: viewModel.dates[index])
+                            NavigationLink(destination: DayView()) {
+                                WeeklyForecastItemView(width: (proxy.size.width - 80) / 4, day: viewModel.days[index], temperature: viewModel.temperatures[index], date: viewModel.dates[index])
+                            }
                         }
                     }
                     .padding(.vertical, 2.0)
