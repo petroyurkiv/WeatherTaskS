@@ -8,28 +8,30 @@
 import SwiftUI
 
 struct DayViewCell: View {
-    var text: String
-    var width: CGFloat
-    var height: CGFloat
-    var textSize: CGFloat
+    var dateText: String
+    var feelsLike: String
+    var humidity: String
+    var wind: String
+    var visibility: String
+    var temperature: String
+    
+    var width, height, textSize: CGFloat
     
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
-                DateView(myText: "April")
-                HourlyWeatherInformationView()
+                DateView(dateText: dateText)
+                HourlyWeatherInformationView(feelsLike: feelsLike,
+                                             humidity: humidity,
+                                             wind: wind,
+                                             visibility: visibility)
             }
             .padding(.leading, 16)
             .padding(.bottom, 10)
-            HourlyTemperatureView(textSize: textSize)
+            HourlyTemperatureView(temperature: temperature, textSize: textSize)
         }
         .frame(maxWidth: width, minHeight: height)
         .background(Color(R.color.bgSunnyColor()!))
     }
 }
 
-//struct DayViewCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DayViewCell(text: "a", width: .infinity, height: 310)
-//    }
-//}

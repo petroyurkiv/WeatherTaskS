@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct HourlyWeatherInformationView: View {
+    var feelsLike: String
+    var humidity: String
+    var wind: String
+    var visibility: String
+    
     var body: some View {
         HStack(spacing: 24) {
             VStack(alignment: .leading ,spacing: 12) {
-                Text("feels like: 13°")
+                Text("feels Like: \(feelsLike)")
                     .font(Font(R.font.interMedium(size: 16)!))
-                Text("humidity: 40%")
+                Text("humidity: \(humidity)")
                     .font(Font(R.font.interMedium(size: 16)!))
             }
             VStack(alignment: .leading ,spacing: 12) {
-                Text("wind: 45km/h")
+                Text("wind: \(wind)")
                     .font(Font(R.font.interMedium(size: 16)!))
-                Text("visibility: 1.2km")
+                Text("visibility: \(visibility)")
                     .font(Font(R.font.interMedium(size: 16)!))
             }
         }
     }
 }
 
-struct WeatherInformationView_Previews: PreviewProvider {
-    static var previews: some View {
-        HourlyWeatherInformationView()
-    }
-}

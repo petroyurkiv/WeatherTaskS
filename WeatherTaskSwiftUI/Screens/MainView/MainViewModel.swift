@@ -20,6 +20,7 @@ class MainViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorText: String?
     @Published var searchedCity: String = ""
+    var weekdaysData: [UUID: WeekDayData] = [:]
     var bag = Set<AnyCancellable>()
     
     init() {
@@ -30,7 +31,7 @@ class MainViewModel: ObservableObject {
             switch result {
             case let .success(location):
                 self.fetchData(latitude: location.latitude, lognitube: location.longitude)
-
+                
             case .failure:
                 self.isLoading = false
                 self.errorText = "Can't detect your location"
@@ -102,25 +103,60 @@ class MainViewModel: ObservableObject {
     }
     
     private func adaptDomainModelsToWeeklyForecastViewModel(model: WeatherResult) -> WeeklyForecastViewModel {
-        let list = model.list
-        var dates: [Date] = []
+        var weekdays: [Int: [List]] = [:]
         
-        let firstHour = formatFromDateToString(date: list.first!.date, dateFormat: "HH:mm")
-        var temperatures: [String] = []
-        
-        for i in list {
-            dates.append(i.date)
-            let hour = formatFromDateToString(date: i.date, dateFormat: "HH:mm")
-            if firstHour == hour {
-                temperatures.append(String(Int(i.main.temp)) + "°")
+        for day in model.list {
+            let weekDay = weekDay(of: day.date)
+            
+            if weekdays[weekDay] != nil {
+                weekdays[weekDay]?.append(day)
+            } else {
+                weekdays[weekDay] = [day]
             }
         }
         
-        return WeeklyForecastViewModel(
-            days: filterDateArray(setFormattedDateToArray(array: dates, dateFormat: "E")),
-            temperatures: temperatures,
-            dates: filterDateArray(setFormattedDateToArray(array: dates, dateFormat: "MMM dd"))
-        )
+        let sortedWeekdays = weekdays.sorted { $0.key < $1.key }
+        
+        var cellViewModels: [DayCellViewModel] = []
+        var weekdaysData: [UUID: WeekDayData] = [:]
+        for sortedWeekday in sortedWeekdays {
+            let id = UUID()
+            var weekdayLabel = ""
+            var temperatureLabel = ""
+            var dateLabel = ""
+            
+            if let weekday = sortedWeekday.value.first {
+                weekdayLabel = formatFromDateToString(date: weekday.date, dateFormat: "E")
+                dateLabel = formatFromDateToString(date: weekday.date, dateFormat: "MMM dd")
+                temperatureLabel = String(Int(weekday.main.temp))
+                weekdaysData[id] = WeekDayData(date: weekday.date, list: sortedWeekday.value)
+                
+            }
+            
+            let dayCellViewModel = DayCellViewModel(
+                id: id,
+                weekdayLabel: weekdayLabel,
+                temperatureLabel: temperatureLabel,
+                dateLabel: dateLabel
+            )
+            
+            cellViewModels.append(dayCellViewModel)
+        }
+        self.weekdaysData = weekdaysData
+        return WeeklyForecastViewModel(days: cellViewModels)
+    }
+    
+    private func weekDay(of date: Date) -> Int {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "UTC")!
+        return calendar.component(.weekday, from: date)
+    }
+    
+    private func formatFromDateToString(date: Date, dateFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let formattedDate = dateFormatter.string(from: date)
+        return formattedDate
     }
 }
 

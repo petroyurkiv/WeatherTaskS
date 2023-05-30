@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DateView: View {
-    var myText: String
+    var dateText: String
     
     var body: some View {
-        Text(myText)
+        Text(dateText)
             .font(Font(R.font.interMedium(size: 18)!))
             .padding(.top, 12)
             .padding(.bottom, 20)

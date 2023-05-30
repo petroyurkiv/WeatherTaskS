@@ -8,7 +8,18 @@
 import Foundation
 
 struct WeeklyForecastViewModel {
-    var days = [String]()
-    var temperatures = [String]()
-    var dates = [String]()
+    var days = [DayCellViewModel]()
 }
+
+struct DayCellViewModel: Identifiable {
+    var id: UUID
+    let weekdayLabel: String
+    let temperatureLabel: String
+    let dateLabel: String
+}
+
+struct WeekDayData {
+    let date: Date
+    let list: [List]
+}
+

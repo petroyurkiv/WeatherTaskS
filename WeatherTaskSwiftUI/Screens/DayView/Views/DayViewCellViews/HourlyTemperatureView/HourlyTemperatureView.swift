@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct HourlyTemperatureView: View {
+    var temperature: String
     var textSize: CGFloat
     
     var body: some View {
-        Text("17°")
+        Text(temperature)
             .font(Font(R.font.interMedium(size: textSize)!))
             .padding(.trailing, 16)
             .padding(.top, 0)
