@@ -14,9 +14,9 @@ struct WeeklyForecastView: View {
     var body: some View {
         GeometryReader { proxy in
             VStack(alignment: .leading) {
-                Text(R.string.texts.weatherTaskSwiftUIWeeklyForecastViewTitle())
-                    .font(Font(R.font.interSemiBold(size: 20.0) ?? .systemFont(ofSize: 20.0, weight: .semibold)))
-                    .padding(.leading, 16.0)
+//                Text(R.string.texts.weatherTaskSwiftUIWeeklyForecastViewTitle())
+//                    .font(Font(R.font.interSemiBold(size: 20.0) ?? .systemFont(ofSize: 20.0, weight: .semibold)))
+//                    .padding(.leading, 16.0)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16.0) {
                         ForEach(viewModel.days, content: { forecastData in

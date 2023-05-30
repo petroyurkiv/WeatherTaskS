@@ -13,7 +13,7 @@ struct HourlyTemperatureView: View {
     
     var body: some View {
         Text(temperature)
-            .font(Font(R.font.interMedium(size: textSize) ?? .systemFont(ofSize: textSize, weight: .medium)))
+//            .font(Font(R.font.interMedium(size: textSize) ?? .systemFont(ofSize: textSize, weight: .medium)))
     }
 }
 

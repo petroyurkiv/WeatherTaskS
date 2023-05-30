@@ -30,7 +30,7 @@ struct DayViewCell: View {
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text(temperature)
-                        .font(Font(R.font.interMedium(size: textSize) ?? .systemFont(ofSize: textSize, weight: .medium)))
+//                        .font(Font(R.font.interMedium(size: textSize) ?? .systemFont(ofSize: textSize, weight: .medium)))
                 }
                 .padding(.trailing, 16.0)
             }
