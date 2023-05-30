@@ -42,4 +42,3 @@ struct WeeklyForecastView: View {
         }
     }
 }
-

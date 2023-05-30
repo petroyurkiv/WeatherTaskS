@@ -17,13 +17,15 @@ struct WeeklyForecastItemView: View {
             VStack(spacing: 8.0) {
                 Text(day)
                     .font(Font(R.font.interMedium(size: 20)!))
+                    .foregroundColor(.black)
                 Text(temperature)
                     .font(Font(R.font.interSemiBold(size: 32)!))
+                    .foregroundColor(.black)
                 Text(date)
                     .font(Font(R.font.interMedium(size: 16)!))
+                    .foregroundColor(.black)
             }
         }
         .frame(minWidth: width, maxHeight: .infinity)
     }
 }
-

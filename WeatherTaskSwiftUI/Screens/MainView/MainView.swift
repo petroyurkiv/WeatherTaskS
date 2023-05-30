@@ -39,7 +39,6 @@ struct MainView: View {
                 }
             }
         }
-        .environmentObject(viewModel)
     }
 }
 

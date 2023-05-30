@@ -22,4 +22,3 @@ struct WeekDayData {
     let date: Date
     let list: [List]
 }
-

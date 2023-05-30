@@ -12,9 +12,9 @@ struct DateView: View {
     
     var body: some View {
         Text(dateText)
-            .font(Font(R.font.interMedium(size: 18)!))
-            .padding(.top, 12)
-            .padding(.bottom, 20)
+            .font(Font(R.font.interSemiBold(size: 18)!))
+            .padding(.top, 8)
+            .padding(.bottom, 4)
     }
 }
 

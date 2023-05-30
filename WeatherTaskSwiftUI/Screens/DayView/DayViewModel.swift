@@ -12,10 +12,9 @@ final class DayViewModel: ObservableObject {
     @Published var list: [ForecastViewModel]
     
     init(weekDayData: WeekDayData) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, h:mm a"
-        self.dateLabel = formatter.string(from: weekDayData.date)
-        self.list = weekDayData.list.map { ForecastViewModel(temperatureLabel: String(Int($0.main.temp)) + "°",
+        self.dateLabel = weekDayData.date.formatFromDateToString(dateFormat: "MMM dd")
+        self.list = weekDayData.list.map { ForecastViewModel(timeLabel: $0.date.formatFromDateToString(dateFormat: "HH:mm a"),
+                                                             temperatureLabel: String(Int($0.main.temp)) + "°",
                                                              feelsLikeLabel: String(Int($0.main.feelsLike)) + "°",
                                                              humidityLabel: String(Int($0.main.humidity)) + "%",
                                                              visibilityLabel: String($0.visibility / 1000) + "km",

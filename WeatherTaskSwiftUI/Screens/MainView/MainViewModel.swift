@@ -106,7 +106,7 @@ class MainViewModel: ObservableObject {
         var weekdays: [Int: [List]] = [:]
         
         for day in model.list {
-            let weekDay = weekDay(of: day.date)
+            let weekDay = day.date.weekDay()
             
             if weekdays[weekDay] != nil {
                 weekdays[weekDay]?.append(day)
@@ -119,6 +119,7 @@ class MainViewModel: ObservableObject {
         
         var cellViewModels: [DayCellViewModel] = []
         var weekdaysData: [UUID: WeekDayData] = [:]
+        
         for sortedWeekday in sortedWeekdays {
             let id = UUID()
             var weekdayLabel = ""
@@ -126,11 +127,10 @@ class MainViewModel: ObservableObject {
             var dateLabel = ""
             
             if let weekday = sortedWeekday.value.first {
-                weekdayLabel = formatFromDateToString(date: weekday.date, dateFormat: "E")
-                dateLabel = formatFromDateToString(date: weekday.date, dateFormat: "MMM dd")
+                weekdayLabel = weekday.date.formatFromDateToString(dateFormat: "E")
+                dateLabel = weekday.date.formatFromDateToString(dateFormat: "MMM dd")
                 temperatureLabel = String(Int(weekday.main.temp))
                 weekdaysData[id] = WeekDayData(date: weekday.date, list: sortedWeekday.value)
-                
             }
             
             let dayCellViewModel = DayCellViewModel(
@@ -145,19 +145,7 @@ class MainViewModel: ObservableObject {
         self.weekdaysData = weekdaysData
         return WeeklyForecastViewModel(days: cellViewModels)
     }
-    
-    private func weekDay(of date: Date) -> Int {
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(abbreviation: "UTC")!
-        return calendar.component(.weekday, from: date)
-    }
-    
-    private func formatFromDateToString(date: Date, dateFormat: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat
-        let formattedDate = dateFormatter.string(from: date)
-        return formattedDate
-    }
 }
+
 
 
