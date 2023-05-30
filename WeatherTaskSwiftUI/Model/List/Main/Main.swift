@@ -9,6 +9,11 @@ import Foundation
 
 struct Main: Decodable {
     let temp: Float
-    let feels_like: Float
+    let feelsLike: Float
     let humidity: Float
+    
+    private enum CodingKeys: String, CodingKey {
+        case temp, humidity
+        case feelsLike = "feels_like"
+    }
 }

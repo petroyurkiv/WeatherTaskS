@@ -14,8 +14,6 @@ struct HourlyTemperatureView: View {
     var body: some View {
         Text(temperature)
             .font(Font(R.font.interMedium(size: textSize)!))
-            .padding(.trailing, 16)
-            .padding(.top, 0)
     }
 }
 

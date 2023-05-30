@@ -16,15 +16,19 @@ struct DayView: View {
             VStack() {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 8) {
-                        Text(dayViewModel.dateLabel)
-                                    
                         ForEach(dayViewModel.list) {
-                            Text($0.visibilityLabel)
-                            Text($0.windLabel)
+                            DayViewCell(dateText: dayViewModel.dateLabel,
+                                        feelsLike: $0.feelsLikeLabel,
+                                        humidity: $0.humidityLabel,
+                                        wind: $0.windLabel,
+                                        visibility: $0.visibilityLabel,
+                                        temperature: $0.temperatureLabel,
+                                        textSize: proxy.size.height / 100 * 7.6
+                            )
+                            .frame(width: proxy.size.width, height: proxy.size.height / 6)
                         }
                     }
                 }
-                
             }
         }
     }

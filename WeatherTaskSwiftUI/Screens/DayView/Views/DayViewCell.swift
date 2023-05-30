@@ -15,7 +15,7 @@ struct DayViewCell: View {
     var visibility: String
     var temperature: String
     
-    var width, height, textSize: CGFloat
+    var textSize: CGFloat
     
     var body: some View {
         HStack(alignment: .top) {
@@ -26,12 +26,22 @@ struct DayViewCell: View {
                                              wind: wind,
                                              visibility: visibility)
             }
-            .padding(.leading, 16)
-            .padding(.bottom, 10)
-            HourlyTemperatureView(temperature: temperature, textSize: textSize)
+                .padding(.leading, 16)
+                .padding(.bottom, 10)
+            Spacer()
+            VStack(alignment: .trailing) {
+                Text(temperature)
+                    .font(Font(R.font.interMedium(size: textSize)!))
+            }
+            .padding(.trailing, 16)
         }
-        .frame(maxWidth: width, minHeight: height)
         .background(Color(R.color.bgSunnyColor()!))
     }
 }
+
+struct DayViewCell_Previews: PreviewProvider {
+     static var previews: some View {
+         DayViewCell(dateText: "трав.30, 12:00 пп", feelsLike: "18;", humidity: "66%", wind: "3km/h", visibility: "10km", temperature: "1;", textSize: 64)
+     }
+ }
 

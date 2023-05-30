@@ -9,6 +9,9 @@ import Foundation
 
 struct ForecastViewModel: Identifiable {
     let id = UUID()
+    let temperatureLabel: String
+    let feelsLikeLabel: String
+    let humidityLabel: String
     let visibilityLabel: String
     let windLabel: String
 }
