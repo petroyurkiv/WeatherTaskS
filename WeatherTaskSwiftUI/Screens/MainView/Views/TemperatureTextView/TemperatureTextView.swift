@@ -14,8 +14,8 @@ struct TemperatureTextView: View {
     var body: some View {
         ZStack(alignment: .center) {
             VStack {
-//                Text(viewModel.temperature)
-//                    .font(Font(R.font.interSemiBold(size: textSize) ?? .systemFont(ofSize: textSize, weight: .semibold)))
+                Text(viewModel.temperature)
+                    .font(Font(R.font.interSemiBold(size: textSize) ?? .systemFont(ofSize: textSize, weight: .semibold)))
             }
         }
     }
