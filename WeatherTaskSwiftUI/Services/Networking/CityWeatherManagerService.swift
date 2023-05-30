@@ -10,7 +10,12 @@ import Foundation
 enum CityWeatherManagerService {
     
     static func fetchData(city: String, completion: @escaping (Result<WeatherResult, Error>) -> Void) {
-        var request = URLRequest(url: URL(string: "\(NetworkSettings.baseURL)/forecast?q=\(city)&appid=\(NetworkSettings.apiKey)&units=metric")!)
+        guard let url = URL(string: "\(NetworkSettings.baseURL)/forecast?q=\(city)&appid=\(NetworkSettings.apiKey)&units=metric") else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0)))
+            return
+        }
+        var request = URLRequest(url: url)
+        
         request.httpMethod = "GET"
         let session = URLSession(configuration: .default)
         

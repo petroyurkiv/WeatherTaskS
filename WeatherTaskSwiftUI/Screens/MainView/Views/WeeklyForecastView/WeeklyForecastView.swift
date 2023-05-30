@@ -9,20 +9,22 @@ import SwiftUI
 
 struct WeeklyForecastView: View {
     @Binding var viewModel: WeeklyForecastViewModel
-    var getWeekDayDataByUUID: (UUID) -> WeekDayData
+    var getWeekDayDataByUUID: (UUID) -> WeekDayData?
     
     var body: some View {
         GeometryReader { proxy in
             VStack(alignment: .leading) {
                 Text(R.string.texts.weatherTaskSwiftUIWeeklyForecastViewTitle())
-                    .font(Font(R.font.interSemiBold(size: 20.0)!))
+                    .font(Font(R.font.interSemiBold(size: 20.0) ?? .systemFont(ofSize: 20.0, weight: .semibold)))
                     .padding(.leading, 16.0)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16.0) {
                         ForEach(viewModel.days, content: { forecastData in
                             NavigationLink(
                                 destination: {
-                                    DayView(dayViewModel: DayViewModel(weekDayData: getWeekDayDataByUUID(forecastData.id)))
+                                    if let weekDayData = getWeekDayDataByUUID(forecastData.id) {
+                                        DayView(dayViewModel: DayViewModel(weekDayData: weekDayData))
+                                    }
                                 },
                                 label: {
                                     WeeklyForecastItemView(

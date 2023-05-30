@@ -14,7 +14,7 @@ struct DailySummaryView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(R.string.texts.weatherTaskSwiftUIDailySummaryViewTitle())
-                .font(Font(R.font.interSemiBold(size: 20.0)!))
+                .font(Font(R.font.interSemiBold(size: 20.0) ?? .systemFont(ofSize: 20.0, weight: .semibold)))
             HStack(spacing: 8.0) {
                 DailySumarryItemView(iconSize: iconSize,
                                      image: R.image.windImage()!,

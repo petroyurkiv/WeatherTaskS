@@ -14,18 +14,18 @@ struct SearchView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(R.string.texts.weatherTaskSwiftUISearchViewTitle())
-                .font(Font(R.font.interSemiBold(size: 20)!))
+                .font(Font(R.font.interSemiBold(size: 20.0) ?? .systemFont(ofSize: 20.0, weight: .semibold)))
                 .padding(.leading)
             HStack {
                 TextField("City", text: $text)
-                    .font(Font(R.font.interMedium(size: 16)!))
+                    .font(Font(R.font.interMedium(size: 16.0) ?? .systemFont(ofSize: 16.0, weight: .medium)))
                     .onSubmit {
                         self.searchedCity = text
                     }
             }
             .padding(8.0)
             .overlay(RoundedRectangle(cornerRadius: 24.0)
-                .stroke(.black, lineWidth: 4))
+                .stroke(.black, lineWidth: 4.0))
             .padding(.horizontal, 16.0)
         }
         .frame(maxWidth: .infinity, alignment: .leading)

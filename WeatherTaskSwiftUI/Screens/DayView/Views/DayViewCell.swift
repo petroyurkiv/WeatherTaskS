@@ -26,13 +26,13 @@ struct DayViewCell: View {
                                                  wind: wind,
                                                  visibility: visibility)
                 }
-                .padding(.leading, 16)
+                .padding(.leading, 16.0)
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text(temperature)
-                        .font(Font(R.font.interMedium(size: textSize)!))
+                        .font(Font(R.font.interMedium(size: textSize) ?? .systemFont(ofSize: textSize, weight: .medium)))
                 }
-                .padding(.trailing, 16)
+                .padding(.trailing, 16.0)
             }
     }
 }
