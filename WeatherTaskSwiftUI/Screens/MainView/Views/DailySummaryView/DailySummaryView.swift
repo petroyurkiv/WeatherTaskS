@@ -17,17 +17,17 @@ struct DailySummaryView: View {
                 .font(Font(R.font.interSemiBold(size: 20.0) ?? .systemFont(ofSize: 20.0, weight: .semibold)))
             HStack(spacing: 8.0) {
                 DailySumarryItemView(iconSize: iconSize,
-                                     image: R.image.windImage()!,
+                                     image: "windImage",
                                      title: viewModel.wind,
                                      subtitle: R.string.texts.weatherTaskSwiftUIDailySummaryViewItemSubitleWind())
 
                 DailySumarryItemView(iconSize: iconSize,
-                                     image: R.image.humidityImage()!,
+                                     image: "humidityImage",
                                      title: viewModel.humidity,
                                      subtitle: R.string.texts.weatherTaskSwiftUIDailySummaryViewItemSubitleHumidity())
 
                 DailySumarryItemView(iconSize: iconSize,
-                                     image: R.image.visibilityImage()!,
+                                     image: "visibilityImage",
                                      title: viewModel.visibility,
                                      subtitle: R.string.texts.weatherTaskSwiftUIDailySummaryViewItemSubitleVisibility())
             }

@@ -9,13 +9,13 @@ import SwiftUI
 
 struct DailySumarryItemView: View {
     var iconSize: CGFloat
-    var image: UIImage
+    var image: String
     var title: String
     var subtitle: String
     
     var body: some View {
         VStack() {
-            Image(uiImage: image)
+            Image(image)
                 .resizable()
                 .frame(width: iconSize, height: iconSize)
                 .padding(.top, 8.0)
