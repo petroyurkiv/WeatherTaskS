@@ -6,11 +6,6 @@ One of the key components of my project was the incorporation of R.Swift—a pow
 
 Overall, I'm very pleased with the outcome of my work. My app leverages the Swift language and the SwiftUI framework to deliver up-to-date weather data, while providing a user-friendly and aesthetically pleasing interface through the use of R.Swift. This project has brought me great satisfaction and valuable experience in software development.
 
-Installation process steps:
-
-1. Download the project.
-2. Open the console.
-3. Enter the command "pod install".
 
 
 
